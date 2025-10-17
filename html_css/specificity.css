@@ -1,0 +1,24 @@
+h1{
+    color: darkred;
+}
+body{
+    background-color: rgb(250, 173, 150);
+}
+h2{
+    color: darkred;
+}
+img{
+    width: 540px;
+}
+p{
+ color: white;
+}
+li{
+    font-size: 25px;
+}
+ul > li{
+    font-family: 'Times New Roman', Times, serif;
+}
+ul > p{
+    font-family:'Courier New', Courier, monospace;
+}
