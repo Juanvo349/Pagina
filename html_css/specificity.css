@@ -1,24 +1,62 @@
-h1{
-    color: darkred;
+/* Style the header */
+#header
+{
+    text-align:center;
+    background-color: #48ff00;
+    padding: 10px;
 }
-body{
-    background-color: rgb(250, 173, 150);
+
+/* Style the navigation bar */
+.navBar
+{
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #b9c422;
 }
-h2{
-    color: darkred;
+
+/* Style links in navigation bar */
+.navBar li a
+{
+    display: block;
+    color: #f1f1f1;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 img{
-    width: 540px;
+    width: 100px;
 }
-p{
- color: white;
+
+/* Change color on hover */
+.navBar li a:hover
+{
+    background-color: #dddddd;
+    color: black;
 }
-li{
-    font-size: 25px;
+
+/* Style main container */
+.flex-container {
+    display: flex;
+    flex-direction: row;
 }
-ul > li{
-    font-family: 'Times New Roman', Times, serif;
+
+.flex-container > div
+{
+    margin: 10px;
 }
-ul > p{
-    font-family:'Courier New', Courier, monospace;
+
+/* Style the footer */
+footer {
+    background-color: #40b811;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Use media query and show the flex items vertically if screen width is less than 600px */
+@media screen and (max-width:600px) {
+    .flex-container
+    {
+        flex-direction: column;
+    }
 }
