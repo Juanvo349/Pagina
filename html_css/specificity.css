@@ -1,62 +1,151 @@
-/* Style the header */
-#header
-{
-    text-align:center;
-    background-color: #48ff00;
-    padding: 10px;
-}
+/* specificity.css: Un diseño profesional y visible desde el inicio */
 
-/* Style the navigation bar */
-.navBar
-{
-    display: flex;
-    list-style-type: none;
+/* 1. Reset básico y Variables CSS */
+* {
     margin: 0;
     padding: 0;
-    background-color: #b9c422;
+    box-sizing: border-box;
 }
 
-/* Style links in navigation bar */
-.navBar li a
-{
-    display: block;
-    color: #f1f1f1;
-    padding: 14px 16px;
+:root {
+    --color-primary: #006400; /* Verde oscuro (Orula) */
+    --color-secondary: #FFD700; /* Amarillo Oro */
+    --color-text: #333;
+    --color-background: #fdfdfd; 
+    --color-footer-bg: #2c3e50; /* Azul oscuro elegante */
+}
+
+/* 2. Estilos Globales y Tipografía */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Fuentes seguras y modernas */
+    line-height: 1.6;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 3. Encabezado (Header) */
+header#header {
+    background-color: var(--color-footer-bg);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header#header h1 {
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+header#header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--color-secondary);
+    object-fit: cover;
+}
+
+/* 4. Barra de Navegación */
+.navBar {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navBar li a {
+    color: white;
     text-decoration: none;
-}
-img{
-    width: 100px;
-}
-
-/* Change color on hover */
-.navBar li a:hover
-{
-    background-color: #dddddd;
-    color: black;
+    padding: 15px 30px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Style main container */
+.navBar li a:hover, .navBar li a:focus {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+/* 5. Contenido Principal (Cards/Tarjetas) */
 .flex-container {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+    flex-grow: 1;
 }
 
-.flex-container > div
-{
-    margin: 10px;
+.card {
+    background: #ffffff; /* Fondo de tarjeta blanco */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--color-primary); /* Toque de color temático */
+    
+    /* *** NOTA IMPORTANTE *** */
+    /* Aquí NO hay opacity: 0; ni transform: translateY(); */
+    /* Los textos se ven desde el primer milisegundo */
 }
 
-/* Style the footer */
+.card:hover {
+    transform: translateY(-5px); /* Efecto de elevación sutil */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); 
+}
+
+.card h2 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card p {
+    margin-bottom: 10px;
+    font-weight: 300;
+    color: #555;
+}
+
+/* 6. Pie de Página (Footer) */
 footer {
-    background-color: #40b811;
-    padding: 8px;
+    background-color: var(--color-footer-bg);
+    color: white;
     text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 0.9em;
 }
 
-/* Use media query and show the flex items vertically if screen width is less than 600px */
-@media screen and (max-width:600px) {
-    .flex-container
-    {
-        flex-direction: column;
-    }
+
+/* Estilos para la transición de aparición (Añadir al final de specificity.css) */
+
+/* Estado INICIAL (Por defecto en la carga de la página): 
+   El texto es visible por si el JS no carga, pero preparamos la transición */
+.card {
+    /* Mantenemos tus estilos profesionales de la tarjeta aquí */
+    /* ... (resto de estilos de .card) ... */
+    
+    /* Preparamos el motor de transición: */
+    transition: 
+        opacity 0.6s ease-out, 
+        transform 0.6s ease-out, 
+        box-shadow 0.3s ease;
 }
+
+
+/* Estado FINAL (Cuando JS añade la clase 'is-visible'): 
+   Usamos selectores que definen cómo se ve antes de que JS actúe */
+.card:not(.is-visible) {
+    /* Esto se aplica a todas las tarjetas que AÚN NO tienen la clase 'is-visible' */
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+

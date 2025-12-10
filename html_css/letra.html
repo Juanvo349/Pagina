@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Letra - Orula</title>
+    <link rel="stylesheet" href="/html_css/specificity.css">
     <link rel="stylesheet" href="/html_css/letra.css">
 </head>
 
 <body>
     <header id="header">
-        <h1>Orula-Victor Mendivil</h1>
-        <img src="/html_css/e8907c16c2d88f3f0160fee2c059609e.300x300x1.png" alt="Orula">
+        <h1>Orula - Victor Mendivil</h1>
+        <img src="/html_css/e8907c16c2d88f3f0160fee2c059609e.300x300x1.png" alt="Orula Image">
     </header>
-    <div>
-        <p id="letra">
+
+    <ul class="navBar">
+        <li id="button1"><a href="/html_css/spectificity.html">Introducción</a></li>
+        <li id="button2"><a href="/html_css/letra.html">Letra</a></li>
+        <li id="button3"><a href="#">Página 3</a></li>
+    </ul>
+
+    <div class="lyrics-container">
+        <!-- Usamos <pre> para respetar los saltos de línea y espacios de la letra -->
+        <pre id="letra">
             [Letra de "Orula"]
 
             [Intro]
@@ -92,8 +101,9 @@
 
             [Outro]
             Orula
-        </p>
+        </pre>
     </div>
+    
 </body>
 
 </html>

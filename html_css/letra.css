@@ -1,14 +1,40 @@
-#header
-{
-    text-align:center;
-    background-color: #48ff00;
-    padding: 10px;
+/* letra.css */
+
+/* Variables para mantener consistencia con specificity.css si es necesario */
+:root {
+    --color-text: #333;
+    --color-background: #fdfdfd;
 }
-#letra{
-    text-align: center;
-    margin: 100px;
+
+.lyrics-container {
+    max-width: 800px; /* Limita el ancho para mejor lectura */
+    margin: 40px auto; /* Centra el contenedor en la página */
+    padding: 20px;
+    background-color: var(--color-background);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
 }
-img{
-    width: 100px;
-    
+
+pre#letra {
+    /* Usamos una fuente monoespaciada (como en los editores de texto) para la letra,
+       lo cual es común en las páginas de letras de canciones. */
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    color: var(--color-text);
+    /* `white-space: pre-wrap;` asegura que las líneas largas se ajusten 
+       a pantallas pequeñas sin perder el formato original */
+    white-space: pre-wrap; 
+    word-wrap: break-word; /* Rompe palabras largas si es necesario */
+    line-height: 1.8; /* Aumenta el espacio entre líneas para facilitar la lectura */
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para las secciones (Intro, Coro, Verso, Outro) */
+pre#letra strong {
+    display: block; /* Asegura que la etiqueta strong ocupe su propia línea si se usa */
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: var(--color-primary); /* Usa el color verde de Orula para las secciones */
+    font-weight: 700;
 }
