@@ -1,24 +1,151 @@
-h1{
-    color: darkred;
+/* specificity.css: Un diseño profesional y visible desde el inicio */
+
+/* 1. Reset básico y Variables CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-    background-color: rgb(250, 173, 150);
+
+:root {
+    --color-primary: #006400; /* Verde oscuro (Orula) */
+    --color-secondary: #FFD700; /* Amarillo Oro */
+    --color-text: #333;
+    --color-background: #fdfdfd; 
+    --color-footer-bg: #2c3e50; /* Azul oscuro elegante */
 }
-h2{
-    color: darkred;
+
+/* 2. Estilos Globales y Tipografía */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Fuentes seguras y modernas */
+    line-height: 1.6;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
-img{
-    width: 540px;
+
+/* 3. Encabezado (Header) */
+header#header {
+    background-color: var(--color-footer-bg);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-p{
- color: white;
+
+header#header h1 {
+    margin-bottom: 15px;
+    font-weight: 700;
 }
-li{
-    font-size: 25px;
+
+header#header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--color-secondary);
+    object-fit: cover;
 }
-ul > li{
-    font-family: 'Times New Roman', Times, serif;
+
+/* 4. Barra de Navegación */
+.navBar {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-ul > p{
-    font-family:'Courier New', Courier, monospace;
+
+.navBar li a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.navBar li a:hover, .navBar li a:focus {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+/* 5. Contenido Principal (Cards/Tarjetas) */
+.flex-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.card {
+    background: #ffffff; /* Fondo de tarjeta blanco */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--color-primary); /* Toque de color temático */
+    
+    /* *** NOTA IMPORTANTE *** */
+    /* Aquí NO hay opacity: 0; ni transform: translateY(); */
+    /* Los textos se ven desde el primer milisegundo */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efecto de elevación sutil */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); 
+}
+
+.card h2 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card p {
+    margin-bottom: 10px;
+    font-weight: 300;
+    color: #555;
+}
+
+/* 6. Pie de Página (Footer) */
+footer {
+    background-color: var(--color-footer-bg);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 0.9em;
+}
+
+
+/* Estilos para la transición de aparición (Añadir al final de specificity.css) */
+
+/* Estado INICIAL (Por defecto en la carga de la página): 
+   El texto es visible por si el JS no carga, pero preparamos la transición */
+.card {
+    /* Mantenemos tus estilos profesionales de la tarjeta aquí */
+    /* ... (resto de estilos de .card) ... */
+    
+    /* Preparamos el motor de transición: */
+    transition: 
+        opacity 0.6s ease-out, 
+        transform 0.6s ease-out, 
+        box-shadow 0.3s ease;
+}
+
+
+/* Estado FINAL (Cuando JS añade la clase 'is-visible'): 
+   Usamos selectores que definen cómo se ve antes de que JS actúe */
+.card:not(.is-visible) {
+    /* Esto se aplica a todas las tarjetas que AÚN NO tienen la clase 'is-visible' */
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+
